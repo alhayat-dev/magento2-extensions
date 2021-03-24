@@ -1,0 +1,16 @@
+<!--@subject {{trans "The customer %customer_name has been logged into the %store_name" store_name=$store.getFrontendName() customer_name=$customer.name}} @-->
+<!--@vars {
+"var store.getFrontendName()":"Store Name",
+"var customer.name":"Customer Name",
+"var administrator_name":"Administrator Name"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">{{trans "Hello <b>%administrator_name</b>," administrator_name=$administrator_name|row}}</p>
+
+<p>{{trans 'The customer named <b>%customer_name</b> just logged into the %store_name:' customer_name=$customer.name store_name=$store.getFrontendName()|row}}</p>
+
+<p>{{trans "You don't need to do anything, this email helps you to track the activations of the customers."|row}}</p>
+
+{{template config_path="design/email/footer_template"}}
